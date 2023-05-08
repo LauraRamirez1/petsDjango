@@ -56,6 +56,14 @@
             
             <div class="title_service col-sm-12">
               <h1>Online Store</h1>
+              
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="listaProductos">Ir a lista productos</a>
+              </li>
+              
+            
+            
+            
             </div>
             <div class="col-sm-12 col-md-4">
               <a class="cardImg" style="background-image: url(../../static/core/img/pets_81.jpg)">
@@ -64,23 +72,8 @@
                 </div>
               </a>
             </div>
-<!-- 
-  <h2>Productos</h2>
-  <div class="productos">
-    {% for p in productos %}
-    <div class="producto">
 
-    <div class="contenedor producto">
-      <div class="detalle">
-        <h5>{{ p.nombre | title }}</h5>
-        <h5>{{ p.precio }}</h5>
 
-      </div>
-    </div>
-  </div>
-</div>
-  {% endfor %}
--->
             <div class="col-sm-12 col-md-4">
               <a class="cardImg" style="background-image: url(../../static/core/img/food.jpg)">
                 <div class="second_text">
@@ -103,8 +96,18 @@
             <div class="row">
               <div class="title_service col-sm-12">
                 <h1>Nuestros Servicios</h1>
+
+
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="listaServicios">Ir a lista servicios</a>
+                </li>
+
+
                 <p>Porque siempre quieres + para tus mascotas. En Pet+ somos un equipo de profesionales al servicio y cuidado de los más consentidos de la familia. </p>
               </div>
+
+
+
               <div class="col-sm-12 col-md-6">
                 <div class="card" style="width: 18rem;">
                   <img src="{% static 'core/img/transport.jpg'%}" class="card-img-top" alt="pet+">

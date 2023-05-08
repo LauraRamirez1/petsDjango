@@ -12,15 +12,6 @@ class Cliente(models.Model):
         def __str__(self):
                 return self.nombreCliente
 
-class Mascota(models.Model):
-        codigoChip = models.IntegerField()
-        nombreMascota = models.CharField(max_length=50)
-        edadMascota = models.IntegerField()
-        nombreCliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
-
-        def __str__(self):
-                return self.nombreMascota
-
 
 class Producto(models.Model):
         nombreProducto = models.CharField(max_length=50)
@@ -29,4 +20,12 @@ class Producto(models.Model):
         
         def __str__(self):
                 return self.nombreProducto
+                
+class Servicio(models.Model):
+        nombreServicio = models.CharField(max_length=50)
+        precioServicio = models.IntegerField()
+        descripcionServicio = models.TextField()
+        
+        def __str__(self):
+                return self.nombreServicio
                 
