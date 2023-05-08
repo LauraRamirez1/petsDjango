@@ -88,6 +88,39 @@ def eliminarMascota(request, nombreMascota):
     messages.success(request, 'Mascota eliminada')
     return redirect('listaMascotas')
 
+def modificarMascota(request, nombreMascota):
+    mascota2 = Mascota.objects.get(nombreMascota = nombreMascota)
+    clientes = Cliente.objects.all()
+    contexto = {
+        "mascota" : mascota2,
+        "cliente": clientes
+    }
+
+    return render(request,'core/modificarMascota.html',contexto)
 
 
+def mascotaModificar(request):
+    nombreMascota_c = request.POST['nombreMascota']
+    edadMascota_c = request.POST['edadMascota']
+    razaMascota_c = request.POST['razaMascota']
+    nombre_c = request.POST['nombre']
+
+
+    #traer registro completo de clientes
+    nombre_c = Cliente.objects.get(codigoCliente = nombre_c)
+
+
+    #buscar registro original
+    mascota = Mascota.objects.get(nombreMascota = nombreMascota_c)
+    
+    #reemplazo por valores nuevos
+    mascota.nombreMascota = nombreMascota_c
+    mascota.edadMascota = edadMascota_c
+    mascota.razaMascota = razaMascota_c
+    mascota.nombre = nombre_c
+    #update
+    mascota.save()
+   
+    messages.success(request, 'Mascota modificada')
+    return redirect('listaMascotas')
 

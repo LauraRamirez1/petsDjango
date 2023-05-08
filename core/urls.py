@@ -11,6 +11,8 @@ from .views import listaMascotas
 from .views import agregarMascota
 from .views import agregarRegistroMascota
 from .views import eliminarMascota
+from .views import modificarMascota
+from .views import mascotaModificar
 
 
 
@@ -29,5 +31,7 @@ urlpatterns = [
     path('agregarMascota',agregarMascota, name="agregarMascota" ),
     path('agregarRegistroMascota',agregarRegistroMascota, name="agregarRegistroMascota" ),
     path('eliminarMascota/<nombreMascota>',eliminarMascota, name="eliminarMascota" ),
+    path('modificarMascota/<nombreMascota>',modificarMascota, name="modificarMascota" ),
+    path('mascotaModificar',mascotaModificar, name="mascotaModificar" ),
 
 ]
