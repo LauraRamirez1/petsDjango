@@ -28,13 +28,13 @@ def create(request):
     return render(request,'core/create.html')
 
 def realizarregistro(request):
-    nombre = request.POST['nombre']
-    telefono = request.POST['telefono']
-    correo = request.POST['correo']
-    password = request.POST['password']
+    nombre_c = request.POST['nombre']
+    telefono_c = request.POST['telefono']
+    correo_c = request.POST['correo']
+    password_c = request.POST['password']
 
     #insert en tabla
-    Cliente.objects.create(nombre = nombre, telefono = telefono, correo = correo, password = password)
+    Cliente.objects.create(nombre = nombre_c, telefono = telefono_c, correo = correo_c, password = password_c)
     messages.success(request, 'Cliente registrado')
     return redirect('create')
 
