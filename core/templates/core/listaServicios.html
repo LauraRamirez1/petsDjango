@@ -27,7 +27,8 @@
     <td>{{ p.nombreServicio }}</td>
     <td>{{ p.precioServicio }}</td>
     <td>{{ p.descripcionServicio }}</td>
-
+    <td><a href="{% url 'eliminarServicio' p.nombreServicio %}">Eliminar</a><br>
+    </td>
 </tr>
 
 {% endfor %}

@@ -28,6 +28,8 @@
       <td>{{ p.nombreProducto }}</td>
       <td>{{ p.precioProducto }}</td>
       <td>{{ p.descripcionProducto }}</td>
+      <td><a href="{% url 'eliminarProducto' p.nombreProducto %}">Eliminar</a><br>
+    </td>
 
   </tr>
 

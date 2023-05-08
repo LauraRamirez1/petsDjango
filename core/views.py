@@ -23,7 +23,6 @@ def listaProductos(request):
     contexto = {"productos": productos}
     return render(request,'core/listaProductos.html', contexto)
 
-
 def create(request):
     return render(request,'core/create.html')
 
@@ -37,6 +36,19 @@ def realizarregistro(request):
     Cliente.objects.create(nombreCliente = nombre, telefonoCliente = telefono, correoCliente = correo, passCliente = password)
     messages.success(request, 'Cliente registrado')
     return redirect('create')
+
+
+def eliminarProducto(request, nombreProducto):
+    producto1 = Producto.objects.get(nombreProducto = nombreProducto) #producto a eliminar
+    producto1.delete() #elimina el registro obtenido de la BD
+    messages.success(request, 'Producto eliminado')
+    return redirect('listaProductos')
+
+def eliminarServicio(request, nombreServicio):
+    servicio1 = Servicio.objects.get(nombreServicio = nombreServicio) #producto a eliminar
+    servicio1.delete() #elimina el registro obtenido de la BD
+    messages.success(request, 'Servicio eliminado')
+    return redirect('listaServicios')
 
 
 

@@ -5,7 +5,8 @@ from .views import create
 from .views import realizarregistro
 from .views import listaServicios
 from .views import listaProductos
-
+from .views import eliminarProducto
+from .views import eliminarServicio
 
 urlpatterns = [
     path('', home, name="home"),
@@ -15,5 +16,7 @@ urlpatterns = [
     path('realizarregistro',realizarregistro, name="realizarregistro" ),
     path('listaServicios',listaServicios, name="listaServicios" ),
     path('listaProductos',listaProductos, name="listaProductos" ),
+    path('eliminarProducto/<nombreProducto>',eliminarProducto, name="eliminarProducto" ),
+    path('eliminarServicio/<nombreServicio>',eliminarServicio, name="eliminarServicio" ),
 
 ]
