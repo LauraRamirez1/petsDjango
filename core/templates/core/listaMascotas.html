@@ -17,10 +17,10 @@
 <h2>Mascotas</h2>
 <table> 
   <tr>
-    <td>Dueño</td>
-    <td>Nombre</td>
-    <td>Edad</td>
-    <td>Raza</td>
+    <td>Nombre mascota</td>
+    <td>Edad mascota</td>
+    <td>Raza mascota</td>
+    <td>Nombre dueño mascota</td>
 
 </tr>
 
@@ -29,7 +29,7 @@
       <td>{{ p.nombreMascota }}</td>
       <td>{{ p.edadMascota }}</td>
       <td>{{ p.razaMascota }}</td>
-      <td>{{ p.cliente.nomnbreCliente }}</td>
+      <td>{{ p.nombre }}</td>
       <td><a href="{% url 'eliminarMascota' p.nombreMascota %}">Eliminar</a><br>
       <td><a href="{% url 'modificarMascota' p.nombreMascota %}">Modificar</a><br>
 
