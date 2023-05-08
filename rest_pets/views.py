@@ -11,7 +11,7 @@ from .serializers import MascotaSerializer
 @csrf_exempt
 @api_view(['GET', 'POST'])
 
-def lista_mascotas(request):
+def listaMascotas(request):
     if request.method == 'GET':
         mascotas = Mascota.objects.all()
         serializer = MascotaSerializer(mascotas, many=True)
@@ -20,4 +20,8 @@ def lista_mascotas(request):
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = MascotaSerializer(data = data)
-        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        else: 
+            return Response(serializer.error, status = status.HTTP_400_BAD_REQUEST)
