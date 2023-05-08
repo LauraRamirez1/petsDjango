@@ -7,6 +7,10 @@ from .views import listaServicios
 from .views import listaProductos
 from .views import eliminarProducto
 from .views import eliminarServicio
+from .views import listaMascotas
+from .views import agregarMascota
+
+
 
 urlpatterns = [
     path('', home, name="home"),
@@ -18,5 +22,7 @@ urlpatterns = [
     path('listaProductos',listaProductos, name="listaProductos" ),
     path('eliminarProducto/<nombreProducto>',eliminarProducto, name="eliminarProducto" ),
     path('eliminarServicio/<nombreServicio>',eliminarServicio, name="eliminarServicio" ),
+    path('listaMascotas',listaMascotas, name="listaMascotas" ),
+    path('agregarMascota',agregarMascota, name="agregarMascota" ),
 
 ]

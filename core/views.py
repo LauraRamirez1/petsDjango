@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Cliente
 from .models import Producto
 from .models import Servicio
+from .models import Mascota
 
 from django.contrib import messages
 
@@ -33,7 +34,7 @@ def realizarregistro(request):
     password = request.POST['password']
 
     #insert en tabla
-    Cliente.objects.create(nombreCliente = nombre, telefonoCliente = telefono, correoCliente = correo, passCliente = password)
+    Cliente.objects.create(nombre = nombre, telefono = telefono, correo = correo, password = password)
     messages.success(request, 'Cliente registrado')
     return redirect('create')
 
@@ -50,6 +51,28 @@ def eliminarServicio(request, nombreServicio):
     messages.success(request, 'Servicio eliminado')
     return redirect('listaServicios')
 
+def listaMascotas(request):
+    mascotas = Mascota.objects.all() #select * from Mascota;
+    contexto = {"mascotas": mascotas}
+    return render(request,'core/listaMascotas.html', contexto)
+
+def agregarMascota(request):
+    return render(request,'core/agregarMascota.html')
+
+def agregarRegistroMascota(request):
+    nombreMascota = request.POST['nombreMascota']
+    edadMascota = request.POST['edadMascota']
+    razaMascota = request.POST['razaMascota']
+    nombre = request.POST['nombre']
+
+    #insert
+    Mascota.objets.create(
+        nombreMascota = nombreMascota,
+        edadMascota = edadMascota,
+        razaMascota = razaMascota,
+        nombre = nombre
+    )
+    return redirect('agregarMascota')
 
 
 

@@ -3,14 +3,14 @@ from django.db import models
 # Create your models here.
 class Cliente(models.Model):
         codigoCliente = models.AutoField(primary_key=True)
-        nombreCliente = models.CharField(max_length=30)
-        telefonoCliente = models.IntegerField()
-        correoCliente = models.CharField(max_length=50)
-        passCliente = models.CharField(max_length=30)
+        nombre = models.CharField(max_length=30)
+        telefono = models.CharField(max_length=50)
+        correo = models.CharField(max_length=50)
+        password = models.CharField(max_length=30)
 
 
         def __str__(self):
-                return self.nombreCliente
+                return self.nombre
 
 
 class Producto(models.Model):
@@ -28,4 +28,13 @@ class Servicio(models.Model):
         
         def __str__(self):
                 return self.nombreServicio
+                
+class Mascota(models.Model):
+        nombreMascota = models.CharField(max_length=50)
+        edadMascota = models.IntegerField()
+        razaMascota = models.CharField(max_length=50)
+        nombre = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+        
+        def __str__(self):
+                return self.nombreMascota
                 
