@@ -57,22 +57,36 @@ def listaMascotas(request):
     return render(request,'core/listaMascotas.html', contexto)
 
 def agregarMascota(request):
-    return render(request,'core/agregarMascota.html')
+    clientes = Cliente.objects.all()
+    contexto = {"cliente": clientes}
+    return render(request,'core/agregarMascota.html', contexto)
 
 def agregarRegistroMascota(request):
-    nombreMascota = request.POST['nombreMascota']
-    edadMascota = request.POST['edadMascota']
-    razaMascota = request.POST['razaMascota']
-    nombre = request.POST['nombre']
+    nombreMascota_c = request.POST['nombreMascota']
+    edadMascota_c = request.POST['edadMascota']
+    razaMascota_c = request.POST['razaMascota']
+    nombre_c = request.POST['nombre']
+
+
+    #traer registro completo de clientes
+    nombre_c = Cliente.objects.get(codigoCliente = nombre_c)
 
     #insert
-    Mascota.objets.create(
-        nombreMascota = nombreMascota,
-        edadMascota = edadMascota,
-        razaMascota = razaMascota,
-        nombre = nombre
+    Mascota.objects.create(
+        nombreMascota = nombreMascota_c,
+        edadMascota = edadMascota_c,
+        razaMascota = razaMascota_c,
+        nombre = nombre_c
+
     )
     return redirect('agregarMascota')
+
+
+def eliminarMascota(request, nombreMascota):
+    mascota1 = Mascota.objects.get(nombreMascota = nombreMascota) #producto a eliminar
+    mascota1.delete() #elimina el registro obtenido de la BD
+    messages.success(request, 'Mascota eliminada')
+    return redirect('listaMascotas')
 
 
 

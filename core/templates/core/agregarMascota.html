@@ -12,7 +12,11 @@
 
     {% load static %}
     <h2>Mascotas</h2>
-   <div class="formulario__grupo-input">
+
+    <form action="{% url 'agregarRegistroMascota' %}" class="formulario" id="formulario" method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="formulario__grupo-input">
         <label>Nombre de la mascota: </label>
         <input type="text" class="formulario__input" id="nombreMascota" name="nombreMascota" required>
    </div> 
@@ -23,12 +27,20 @@
     </div> 
 
     <div class="formulario__grupo-input">
+        <label>Raza de la mascota: </label>
+        <input type="text" class="formulario__input" id="razaMascota" name="razaMascota" required>
+    </div> 
+
+
+    <div class="formulario__grupo-input">
         <label>Nombre del dueño: </label>
         <select class="formulario__input" name="nombre" id="nombre">
             {% for x in cliente %}
-                <option value="{{x.nombre}}"></option>
+                <option value="{{x.codigoCliente}}">{{x.nombre}}</option>
             {% endfor %}
         </select>
+
+ 
 
 
     </div>
@@ -38,3 +50,5 @@
         <button type="submit" style="padding-left: 1rem; padding-right: 1rem;" class="btn-primary">Enviar</button>
         <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Ingreso exitoso</p>
       </div><br>
+
+    </form>
