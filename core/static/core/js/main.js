@@ -4,7 +4,7 @@ const inputs = document.querySelectorAll('#login input');
 
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, 
-	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/
+	password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 }
 
 const campos = {
