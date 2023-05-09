@@ -436,6 +436,87 @@ CREATE */
 	border: 3px solid #bb2929;
 }
 
+/* ----------------------------------------------------------------------------------------
+Otros html*/
+.container_modificar_mascotas,
+.container_agregar_mascotas,
+.container_lista_productos,
+.container_lista_servicios,
+.container_lista_mascotas{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.container_modificar_mascotas h2,
+.container_agregar_mascotas h2,
+.container_lista_productos h2,
+.container_lista_servicios h2,
+.container_lista_mascotas h2{
+  color: #f5c271;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.button_box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_new{
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  box-shadow: none;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 8px;
+}
+.btn_new:hover, .btn_new:active, .btn_new:checked, .btn_new:focus {
+  color: #fff;
+  background-color: #f5c271;
+  border-color: #f5c271;
+}
+
+table {
+  max-width: 500px;
+  margin: 1rem;
+  border: 1px solid #000;
+}
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 0.3em;
+  caption-side: bottom;
+}
+td a{
+  color: #f59671;
+}
+caption {
+  padding: 0.3em;
+  color: #fff;
+   background: #000;
+}
+th {
+  background: #eee;
+}
+
+.container_modificar_mascotas form label,
+.container_agregar_mascotas form label{
+  width: 150px;
+}
+.formulario__grupo-input{
+  margin-bottom: 1rem;
+}
+
 
 /* ----- -----  Mediaqueries ----- ----- */
 @media screen and (max-width: 800px) {
